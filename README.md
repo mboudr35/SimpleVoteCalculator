@@ -21,7 +21,7 @@ Flags:
 ```
 ## Examples
 ### Score/Approval
-Here's a simple example for an approval-style election with 3 candidates: Adam, Beth and Charles.
+Here's a simple example for an approval-style election with 4 candidates: Adam, Beth, Charles, and Denise.
 
 We will use the [`approval_test.csv`](./approval_test.csv) file as input.
 
@@ -30,9 +30,9 @@ Note that approval voting maps to score voting where approve = 1, neutral = 0, a
 The program outputs this:
 ```
 $ election -score < approval_test.csv
-[Beth:13 Adam:6 Charles:-5]
+[[Beth] [Adam Denise] [Charles]]
 ```
-From this we determine that Beth is the undisputed winner with a score of 13, followed by Adam with a score of 6, then Charles with a score of -5.
+From this we determine that Beth is the winner, followed by Adam and Denise who are tied, then Charles.
 
 ### Schulze
 We have 5 candidates: Adam, Beth, Charles, Denise, and Edward.

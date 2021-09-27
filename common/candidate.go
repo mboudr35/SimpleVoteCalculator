@@ -1,4 +1,4 @@
-package methods
+package common
 
 // Candidate Represents a candidate with an ID number and name
 type Candidate struct {

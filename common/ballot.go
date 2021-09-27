@@ -1,4 +1,4 @@
-package methods
+package common
 
 // Ballot Maps candidates to a score
 type Ballot map[Candidate]int
