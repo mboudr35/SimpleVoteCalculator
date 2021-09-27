@@ -46,6 +46,7 @@ func (sl ScoreList) Swap(i, j int) {
 
 // GetScoreResult Returns a list of candidates ordered by score
 func GetScoreResult(candidates []Candidate, ballots []Ballot) ScoreList {
+	// Can be adapted to approval by setting approve = 1, neutral = 0, reject = -1.  Winners will have positive score.
 	candidateScores := make(ScoreList, len(candidates))
 	for cid, cval := range candidates {
 		candidateScores[cid] = ScoreListElem{
@@ -53,6 +54,7 @@ func GetScoreResult(candidates []Candidate, ballots []Ballot) ScoreList {
 			score: 0,
 			index: cid,
 		}
+		// Candidate's final score is sum of ballot scores
 		for _, bv := range ballots {
 			candidateScores[cid].score += bv.GetCandidateScore(cval)
 		}

@@ -2,7 +2,7 @@ package main
 
 import (
 	"bufio"
-	"ctf.mcgill.ca/internal/voting/methods"
+	"ctf.mcgill.ca/internal/election/methods"
 	"encoding/csv"
 	"flag"
 	"fmt"
@@ -14,9 +14,18 @@ import (
 var schulze bool
 var score bool
 
+func usage() {
+	fmt.Fprintln(flag.CommandLine.Output(), "Takes a list of comma-separated values (CSV) from standard in.")
+	fmt.Fprintln(flag.CommandLine.Output(), "The first line (header) is the list of candidates.")
+	fmt.Fprintln(flag.CommandLine.Output(), "The following lines are ballots, where column entries correspond to the candidate's score from the ballot.")
+	fmt.Fprintln(flag.CommandLine.Output(), "Flags:")
+	flag.PrintDefaults()
+}
+
 func init() {
-	flag.BoolVar(&schulze, "schulze", false, "Use the Schulze method")
-	flag.BoolVar(&score, "score", false, "Use the score method")
+	flag.BoolVar(&schulze, "schulze", false, "Use the Schulze method.  Lower ballot column entries yield a better rank for the corresponding candidate.")
+	flag.BoolVar(&score, "score", false, "Use the score method.  Higher ballot column entries yield a better score for the corresponding candidate.")
+	flag.Usage = usage
 }
 
 func main() {
