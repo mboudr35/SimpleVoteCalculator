@@ -23,7 +23,7 @@ Flags:
 ### Score/Approval
 Here's a simple example for an approval-style election with 3 candidates: Adam, Beth and Charles.
 
-We will use the `approval_test.csv` file as input.
+We will use the [`approval_test.csv`](./approval_test.csv) file as input.
 
 Note that approval voting maps to score voting where approve = 1, neutral = 0, and reject = -1.
 
@@ -37,7 +37,7 @@ From this we determine that Beth is the undisputed winner with a score of 13, fo
 ### Schulze
 We have 5 candidates: Adam, Beth, Charles, Denise, and Edward.
 
-We will use the `schulze_test.csv` file as input.
+We will use the [`schulze_test.csv`](./schulze_test.csv) file as input.
 
 The program outputs this:
 ```
