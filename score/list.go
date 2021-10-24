@@ -24,7 +24,7 @@ func (sle ListElem) GetIndex() int {
 }
 
 func (sle ListElem) String() string {
-	return sle.value.String()
+	return fmt.Sprintf("(%s -> %d)", sle.value.String(), sle.score)
 }
 
 type List []ListElem
@@ -42,28 +42,4 @@ func (sl List) Swap(i, j int) {
 	sl[i], sl[j] = sl[j], sl[i]
 	sl[i].index = i
 	sl[j].index = j
-}
-
-func (sl List) String() string {
-	var outer [][]common.Candidate
-	var inner []common.Candidate
-	visited := false
-	lastScore := 0
-	for _, sle := range sl {
-		if visited {
-			if lastScore == sle.score {
-				inner = append(inner, sle.value)
-			} else {
-				outer = append(outer, inner)
-				inner = []common.Candidate{sle.value}
-				lastScore = sle.score
-			}
-		} else {
-			lastScore = sle.score
-			inner = append(inner, sle.value)
-			visited = true
-		}
-	}
-	outer = append(outer, inner)
-	return fmt.Sprint(outer)
 }
