@@ -5,7 +5,7 @@ import (
 )
 
 // GetWinners Determines the winners of a Schulze iteration
-func GetWinners(candidates []common.Candidate, pathStrength map[common.Candidate]map[common.Candidate]int) []common.Candidate {
+func GetWinners(candidates []common.Candidate, pathStrength CandidateMatrix) []common.Candidate {
 	winMap := make(WinMap, len(candidates))
 	// Candidates to wins map
 	for _, c1 := range candidates {
