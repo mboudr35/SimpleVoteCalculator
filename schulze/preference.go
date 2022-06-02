@@ -1,6 +1,6 @@
 package schulze
 
-import "ctf.mcgill.ca/internal/election/common"
+import "simplevotecalculator/common"
 
 func GetPreferenceMatrix(candidates []common.Candidate, ballots []common.Ballot) CandidateMatrix {
 	result := NewCandidateMatrix(candidates)

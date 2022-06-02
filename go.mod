@@ -1,3 +1,3 @@
-module ctf.mcgill.ca/internal/election
+module simplevotecalculator
 
-go 1.17
+go 1.18

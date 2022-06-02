@@ -1,25 +1,16 @@
 package score
 
 import (
-	"ctf.mcgill.ca/internal/election/common"
+	"simplevotecalculator/common"
 	"sort"
 )
 
-// GetResult Returns a list of candidates ordered by score
-func GetResult(candidates []common.Candidate, ballots []common.Ballot) List {
-	// Can be adapted to approval by setting approve = 1, neutral = 0, reject = -1.  Winners will have positive score.
-	candidateScores := make(List, len(candidates))
-	for cid, cval := range candidates {
-		candidateScores[cid] = ListElem{
-			value: cval,
-			score: 0,
-			index: cid,
-		}
-		// Candidate's final score is sum of ballot scores
-		for _, bv := range ballots {
-			candidateScores[cid].score += bv.GetCandidateScore(cval)
+// Compute Returns a list of candidates ordered by score
+func Compute(candidates common.Candidates, ballots []common.Ballot) {
+	for i, c := range candidates {
+		for _, b := range ballots {
+			candidates[i].IncrRank(b[c])
 		}
 	}
-	sort.Sort(candidateScores)
-	return candidateScores
+	sort.Sort(candidates)
 }

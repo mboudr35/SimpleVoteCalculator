@@ -1,8 +1,8 @@
 package schulze
 
 import (
-	"ctf.mcgill.ca/internal/election/common"
 	"math"
+	"simplevotecalculator/common"
 )
 
 // GetPathStrengthMatrix Calculates the strength of the strongest paths for each pair of candidates

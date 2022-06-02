@@ -1,6 +1,6 @@
 package schulze
 
-import "ctf.mcgill.ca/internal/election/common"
+import "simplevotecalculator/common"
 
 type CandidateMatrix map[common.Candidate]map[common.Candidate]int
 
