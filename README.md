@@ -1,4 +1,4 @@
-# CTF Officer & Council Election Calculator
+# Simple Election Calculator
 This program can be used to determine the winner(s) of a Schulze-style or score-style election.
 
 * [Usage](#usage)
@@ -27,11 +27,6 @@ We will use the [`approval_test.csv`](./approval_test.csv) file as input.
 
 Note that approval voting maps to score voting where approve = 1, neutral = 0, and reject = -1.
 
-The program outputs this:
-```
-$ election -score < approval_test.csv
-[[Beth] [Adam Denise] [Charles]]
-```
 From this we determine that Beth is the winner, followed by Adam and Denise who are tied, then Charles.
 
 ### Schulze
@@ -39,11 +34,6 @@ We have 5 candidates: Adam, Beth, Charles, Denise, and Edward.
 
 We will use the [`schulze_test.csv`](./schulze_test.csv) file as input.
 
-The program outputs this:
-```
-$ election -schulze < schulze_test.csv
-[[Adam] [Beth Charles] [Edward] [Denise]]
-```
 From this we determine that Adam is the winner, followed by Beth and Charles who are tied, then Edward, then finally Denise.
 
 ## References
